@@ -1,0 +1,13 @@
+<form method="post">
+  <input type="hidden" name="t" value="w">
+  <fieldset>
+    <legend>Wifi Settings</legend>
+    <label for="wname">Wifi Name
+      <input type="text" value="{{db['wifi_name']}}" id="wname" name="wn" placeholder="name" required="true">
+    </label>
+    <label for="wpass">Wifi Password
+      <input type="text" value="{{db['wifi_pass']}}" id="wpass" name="wp" placeholder="password" required="true">
+    </label>
+  </fieldset>
+  <p><div><span>&nbsp;</span><span style="float:right;"><button class="btn bg-blue btn-lg" name="n" value="m" type="submit">Next</button></span></div><p>
+</form>

@@ -1,0 +1,23 @@
+<form method="post">
+  <input type="hidden" name="t" value="d">
+  <fieldset>
+    <legend>Device Settings</legend>
+    <label for="dname">Device Name
+      <input type="text" value="{{db['device_name']}}" id="dname" name="dn" placeholder="name" required="true">
+    </label>
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>Add Nodes</legend>
+    {% if not nodes %}
+    Could not fetch nodes info from Github
+    {% endif %}
+    {% for node in nodes %}
+    <label>
+      <input type="checkbox" name="nds" value="{{node}}" {% if node in db['nodes'] %}checked="checked"{% endif %}>
+      {{node}}
+    </label>
+    {% endfor %}
+  </fieldset>
+  <p><div><button class="btn btn-lg" name="n" value="m" type="submit">Back</button><span style="float:right;"><button class="btn bg-blue btn-lg" name="n" value="n" type="submit">Next</button></span></div><p>
+</form>

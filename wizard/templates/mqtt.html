@@ -1,0 +1,19 @@
+<form method="post">
+  <input type="hidden" name="t" value="m">
+  <fieldset>
+    <legend>MQTT Settings</legend>
+    <label for="mbroker">MQTT Broker
+      <input type="text" value="{{db['mqtt_broker']}}" id="mbroker" name="mb" placeholder="broker" required="true">
+    </label>
+    <label for="muser">MQTT User
+      <input type="text" value="{{db['mqtt_user']}}" id="muser" name="mu" placeholder="username">
+    </label>
+    <label for="mpass">MQTT Password
+      <input type="text" value="{{db['mqtt_pass']}}" id="mpass" name="mp" placeholder="password">
+    </label>
+    <label for="mtopic">MQTT Base Topic
+      <input type="text" value="{{db['mqtt_topic']}}" id="mtopic" name="mt" placeholder="topic" required="true">
+    </label>
+  </fieldset>
+  <p><div><button class="btn btn-lg" name="n" value="w" type="submit">Back</button><span style="float:right;"><button class="btn bg-blue btn-lg" name="n" value="d" type="submit">Next</button></span></div><p>
+</form>

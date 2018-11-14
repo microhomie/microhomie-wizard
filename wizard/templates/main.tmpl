@@ -1,0 +1,51 @@
+{% args nodes %}
+import settings
+
+{% for node in nodes %}
+{% if node == 'led' %}
+from homie.node.led import LED
+{% elif node == 'dht22' %}
+from homie.node.dht22 import DHT22
+{% elif node == 'pir' %}
+from homie.node.pir import PIR
+{% elif node == 'switch' %}
+from homie.node.switch import Switch
+{% elif node == 'relais' %}
+from homie.node.relais import Relais
+{% elif node == 'http' %}
+from homie.node.http import HTTP
+{% endif %}
+{% endfor %}
+
+from homie.device import HomieDevice
+from homie.utils import disable_ap
+
+
+def main():
+    disable_ap()
+
+    # Homie device setup
+    homie = HomieDevice(settings)
+
+    # Homie nodes
+{% for node in nodes %}
+{% if node == 'led' %}
+    homie.add_node(LED(pin=2))
+{% elif node == 'dht22' %}
+    homie.add_node(DHT22(pin={{nodes[node]['pin'][0]}}))
+{% elif node == 'pir' %}
+    homie.add_node(PIR(pin={{nodes[node]['pin'][0]}}))
+{% elif node == 'swtich' %}
+    homie.add_node(Switch(pin={{nodes[node]['pin'][0]}}))
+{% elif node == 'relais' %}
+    homie.add_node(Relais(pin={{nodes[node]['pin']}}))
+{% elif node == 'http' %}
+    homie.add_node(HTTP(url='{{nodes[node]['url']}}'))
+{% endif %}
+{% endfor %}
+
+    # run forever
+    homie.start()
+
+
+main()

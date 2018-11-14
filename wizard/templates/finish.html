@@ -1,0 +1,48 @@
+<h2>Checking your settings</h2>
+<form method="post">
+  <input type="hidden" name="t" value="f">
+  <table class="table">
+    <thead><tr><th style="width:180px">WIFI Settings</th><th>&nbsp;</th></tr></thead>
+    <tbody>
+      <tr><td>Wifi Name</td><td>{{db['wifi_name']}}</td></tr>
+      <tr><td>Wifi Password</td><td>{{db['wifi_pass']}}</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table">
+    <thead><tr><th style="width:180px">MQTT Settings</th><th>&nbsp;</th></tr></thead>
+    <tbody>
+      <tr><td>MQTT Broker</td><td>{{db['mqtt_broker']}}</td></tr>
+      <tr><td>MQTT Username</td><td>{{db['mqtt_user']}}</td></tr>
+      <tr><td>MQTT Password</td><td>{{db['mqtt_pass']}}</td></tr>
+      <tr><td>MQTT Base Topic</td><td>{{db['mqtt_topic']}}</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table">
+    <thead><tr><th style="width:180px">Device Settings</th><th>&nbsp;</th></tr></thead>
+    <tbody>
+      <tr><td>Device Name</td><td>{{db['device_name']}}</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table">
+    <thead><tr><th style="width:180px">Node Settings</th><th></th></tr></thead>
+    <tbody>
+      {% for node in db['nodes'] %}
+      <tr><td>{{node}}</td>
+          <td>
+              {% if 'pin' in db['nodes'][node] %}
+              PIN: {{db['nodes'][node]['map']}}
+              {% elif 'url' in db['nodes'][node] %}
+              URL: {{db['nodes'][node]['url']}}
+              {% else %}
+              -
+              {% endif %}
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p><div><button class="btn btn-lg" name="n" value="n" type="submit">Back</button><span style="float:right;"><button class="btn bg-green btn-lg" name="n" value="end" type="submit">Finish</button></span></div><p>
+</form>

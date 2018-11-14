@@ -1,0 +1,10 @@
+picoweb
+utemplate
+micropython-umqtt.simple
+microhomie
+microhomie-node-dht22
+microhomie-node-http
+microhomie-node-led
+microhomie-node-pir
+microhomie-node-relais
+microhomie-node-switch

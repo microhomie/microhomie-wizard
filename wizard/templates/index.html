@@ -1,0 +1,51 @@
+{% args db, settings, nodes, notify %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link href="style.min.css" rel="stylesheet">
+    <title>Microhomie Device Setup</title>
+  </head>
+  <body>
+    <header class="sp-lg bg-black">
+      <h1 class="brand">Microhomie</h1>
+      <h2 class="txt-light-gray txt-light">
+        <small>Device Setup</small>
+      </h2>
+    </header>
+    {% if notify %}
+    <section class="sp-horiz-lg">
+      <div class="row sp-vert-sm">
+        <div class="col c4 cm8 cs6"></div>
+        <div class="col c4 cm2 cs2">
+            <div class="alert-box warning">{{notify}}</div>
+        </div>
+        <div class="col c4 cm2 cs4"></div>
+      </div>
+    </section>
+    {% endif %}
+    <section class="sp-horiz-lg">
+      <div class="row sp-vert-sm">
+        <div class="col c4 cm8 cs6"></div>
+        <div class="col c4 cm2 cs2">
+            {% if settings == "w" %}
+              {% include "wifi.html" %}
+            {% elif settings == "m" %}
+              {% include "mqtt.html" %}
+              {% elif settings == "d" %}
+                {% include "device.html" %}
+            {% elif settings == "f" %}
+              {% include "finish.html" %}
+              {% elif settings == "n" %}
+                {% include "node.html" %}
+            {% elif settings == "end" %}
+                <p>Microhomie setup complete. You can now reset your device.</p>
+            {% endif %}
+        </div>
+        <div class="col c4 cm2 cs4"></div>
+      </div>
+    </section>
+  </body>
+</html>

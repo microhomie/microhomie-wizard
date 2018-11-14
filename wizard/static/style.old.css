@@ -1,0 +1,41 @@
+.brand {
+  color: #7c66a4;
+  font-family: 'Lucida Grande';
+  font-size: 3em;
+  line-height: 1em;
+  margin-bottom: 0;
+  text-shadow: 0 -1px 0 #000, 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+@media(max-width: 33em) {
+  .brand {
+    font-size: 4em;
+  }
+}
+
+fieldset {
+    padding-top: 10px;
+}
+
+label {
+    padding-top: 10px
+}
+
+legend {
+    font-size: 1.5em;
+}
+
+input {
+    margin-top: 5px;
+    width: 24em;
+}
+
+.alert-box {
+    color:#555;
+    padding:10px 10px 10px 36px;
+}
+
+.warning {
+    background-color:#fff8c4;
+    border:1px solid #f2c779;
+}

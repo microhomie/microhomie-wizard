@@ -1,0 +1,16 @@
+{% args db %}
+from homie.utils import get_unique_id
+
+WIFI_SSID = '{{db['wifi_name']}}'
+WIFI_PASSWORD = '{{db['wifi_pass']}}'
+MQTT_BROKER = '{{db['mqtt_broker']}}'
+MQTT_PORT = 0
+MQTT_USERNAME = '{{db['mqtt_user']}}'
+MQTT_PASSWORD = '{{db['mqtt_pass']}}'
+MQTT_KEEPALIVE = 60
+MQTT_SSL = False
+MQTT_SSL_PARAMS = {}
+MQTT_BASE_TOPIC = b'{{db['mqtt_topic']}}'
+DEVICE_ID = get_unique_id()
+DEVICE_NAME = b'{{db['device_name']}}'
+DEVICE_STATS_INTERVAL = 60

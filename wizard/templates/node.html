@@ -1,0 +1,33 @@
+<form method="post">
+  <input type="hidden" name="t" value="n">
+  {% for node in db['nodes'] %}
+  <fieldset>
+    <legend>{{node}} node settings</legend>
+    {% if 'pin' in db['nodes'][node] %}
+    <table class="table">
+      <thead>
+        <tr><th>&nbsp;</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>D5</th><th>D6</th><th>D7</th><th>D8</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>PIN</td>
+          {% for p in [5, 4, 0, 2, 14, 12, 13, 15] %}
+          <td><input type="{{nodes[node]['pin']['list']}}" name="{{node}}" value="{{p}}" {% if p in db['nodes'][node]['pin'] %}checked="checked"{% endif %}></td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+    {% if 'url' in db['nodes'][node] %}
+    <table class="table">
+      <tbody>
+        <tr><td>URL</td><td><input type="text" value="{{db['nodes'][node]['url']}}" name="{{node}}" required="true"></td>
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+  </fieldset>
+  <br>
+  {% endfor %}
+  <p><div><button class="btn btn-lg" name="n" value="d" type="submit">Back</button><span style="float:right;"><button class="btn bg-blue btn-lg" name="n" value="f" type="submit">Next</button></span></div><p>
+</form>

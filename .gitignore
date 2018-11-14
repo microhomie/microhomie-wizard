@@ -1,0 +1,7 @@
+/esp-open-sdk
+/micropython
+R.py
+wizard/templates/*_*.py
+/*.bin
+style.min.css
+lib/
